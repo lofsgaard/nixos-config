@@ -152,11 +152,14 @@
     steam
     btop
     feh
+    tldr
+    # ------- GTK theme ------- #
     (catppuccin-gtk.override {
     accents = [ "pink" "blue" ]; # You can specify multiple accents here to output multiple themes
     size = "compact";
     tweaks = [ "rimless" "black" ]; # You can also specify multiple tweaks here
     variant = "mocha";
+    # ------- GTK theme ------- #
     }) 
   ];
 
