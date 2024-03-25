@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config,lib, pkgs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -55,11 +55,9 @@
   # Program configs
   programs.alacritty = {
     enable = true;
-    settings = {
-    	#font.normal.family = "Jetbrains-mono";
-    	font.size = 12;
-    };
+    settings = lib.attrsets.recursiveUpdate (import ~/nixos-config/alacritty/default-settings.nix) {};
   };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
