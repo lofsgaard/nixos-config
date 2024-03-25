@@ -80,10 +80,31 @@
   nixpkgs.config.allowUnfree = true;
   
   # Enables i3 window manager and xserver
-  services.xserver.enable = true;
-  services.xserver.windowManager.i3.enable = true;
+  services.xserver = {
+    enable = true;
+
+    desktopManager = {
+      xterm.enable = false;
+    };
+   
+    displayManager = {
+        defaultSession = "none+i3";
+    };
+
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        i3status # gives you the default i3 status bar
+        i3lock #default i3 screen locker
+        rofi
+        autotiling    
+        lxappearance
+        polybar
+     ];
+    };
+  };
   services.xserver.windowManager.i3.package = pkgs.i3-gaps;
-  programs.xfconf.enable = true;
+  programs.dconf.enable = true;
 
   # Enable PipeWire
   security.rtkit.enable = true;
@@ -113,7 +134,6 @@
     firefox
     alacritty
     git
-    rofi
     pavucontrol
     discord
     spotify
@@ -129,10 +149,7 @@
     cargo
     devenv
     steam
-    #-------i3
-    lxappearance
-    polybar
-
+    btop
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
