@@ -18,7 +18,11 @@
   # plain files is through 'home.file'.
   home.file = {
     # '';
+    # i3 config
     ".config/i3/config".source = ./i3.config;
+    # rofi config
+    ".config/rofi/config.rasi".source = ./rofi/config.rasi;
+    "/home/fjs/.local/share/rofi/themes/catppuccin-mocha.rasi".source = ./rofi/catppuccin-mocha.rasi;
   };
 
   # Program configs
