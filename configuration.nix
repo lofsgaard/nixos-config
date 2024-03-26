@@ -163,6 +163,10 @@
     python3
     python312
     pipenv
+    # ------- K8S stuff ------- #
+    minikube
+    kubectl
+    k9s
     # ------- GTK theme ------- #
     (catppuccin-gtk.override {
     accents = [ "pink" "blue" ]; # You can specify multiple accents here to output multiple themes
