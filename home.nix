@@ -60,6 +60,14 @@
     };
   };
   
+  # Configure virt-manager settings
+  dconf.settings = {
+  "org/virt-manager/virt-manager/connections" = {
+    autoconnect = ["qemu:///system"];
+    uris = ["qemu:///system"];
+    };
+  };
+  
   # Home Manager can also manage your environment variables
   home.sessionVariables = {
      EDITOR = "nvim";
@@ -68,3 +76,4 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
+

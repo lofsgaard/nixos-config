@@ -60,7 +60,7 @@
   users.users.fjs = {
     isNormalUser = true;
     description = "fjs";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
     packages = with pkgs; [];
   };
   
@@ -75,6 +75,13 @@
   # Configures file manager
   programs.thunar.enable = true;
   services.tumbler.enable = true;
+
+  # Installing and configuring Virt-manager
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+
+  # Installing docker engine
+  virtualisation.docker.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -96,6 +103,7 @@
       extraPackages = with pkgs; [
         i3status # gives you the default i3 status bar
         i3lock #default i3 screen locker
+        xautolock
         rofi
         autotiling    
         lxappearance
@@ -143,7 +151,6 @@
     go
     neofetch
     flameshot
-    pipenv
     lsd
     pamixer
     gcc
@@ -153,6 +160,9 @@
     btop
     feh
     tldr
+    python3
+    python312
+    pipenv
     # ------- GTK theme ------- #
     (catppuccin-gtk.override {
     accents = [ "pink" "blue" ]; # You can specify multiple accents here to output multiple themes
